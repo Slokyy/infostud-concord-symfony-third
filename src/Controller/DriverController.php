@@ -73,7 +73,8 @@
         $reservation->setDriver($driver);
         $reservationRepository->add($reservation);
 
-        return $this->redirectToRoute('drivers-all',[]);
+        return $this->redirectToRoute('drivers-find',['id' => $id]);
+
       }
       return $this->render('drivers/profile.html.twig',[
         'driver' => $driver,
