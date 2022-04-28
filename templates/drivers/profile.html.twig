@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Driver Profile{% endblock %}
+{% block body %}
+
+  <div class="container pt-3">
+    <h1 class="mt-4 mb-5 text-center">{{ driver.firstname }} {{ driver.lastname }}</h1>
+    <div class="row">
+
+      <div class="card col-3">
+        <h3 class="text-center">Profile Info</h3>
+        <div class="card-header">
+          Driver: {{ driver.firstname }} {{ driver.lastname }}
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Birthday: {{ driver.birthdate | date('d / m / Y') }}</li>
+          <li class="list-group-item">City: {{ driver.city }}</li>
+          <li class="list-group-item">Email: {{ driver.email }}</li>
+          <li class="list-group-item">Phone: {{ driver.phone }}</li>
+        </ul>
+      </div>
+      <div class="col-9">
+        <div class="container">
+          {{ form(form) }}
+        </div>
+    </div>
+  </div>
+{% endblock %}

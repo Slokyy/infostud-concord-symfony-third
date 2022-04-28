@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Reservations{% endblock %}
+
+{% block body %}
+
+  <div class="container pt-3">
+    {% if reservations | length %}
+      <h3>List of all Reservations</h3>
+      <table id="reservation-table" class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Driver Email</th>
+          <th>Driver Phone</th>
+          <th>Vehicle</th>
+          <th>Reservation Date</th>
+        </tr>
+        </thead>
+        <tbody id="product-table-body">
+        {% for reservation in reservations %}
+          <tr class="align-middle">
+            <td>{{ reservation.driver.firstname }} {{ reservation.driver.lastname }}</td>
+            <td>{{ reservation.driver.phone }}</td>
+            <td>{{ reservation.driver.email }}</td>
+            <td>{{ reservation.vehicle.brand }} {{ reservation.vehicle.model }}</td>
+            <td>{{ reservation.dateReserved | date('d / m / Y') }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <h1>Nema Rezervacija</h1>
+    {% endif %}
+  </div>
+{% endblock %}

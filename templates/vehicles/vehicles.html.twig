@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Vehicles {% endblock %}
+
+{% block body %}
+  <div class="container pt-3">
+    <h3 class="mt-4 mb-3">Add New Vehicle</h3>
+    {{ form(form) }}
+  </div>
+
+    <div class="container pt-3">
+      <h3>Vehicle List</h3>
+      {% if vehicles | length %}
+        <table id="reservation-table" class="table table-striped table-hover">
+          <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Purchase Date</th>
+            <th>Reservation History</th>
+          </tr>
+          </thead>
+          <tbody id="product-table-body">
+          {% for vehicle in vehicles %}
+            <tr class="align-middle">
+              <td>{{ vehicle.brand }}</td>
+              <td>{{ vehicle.model }}</td>
+              <td>{{ vehicle.purchaseDate | date('d / m / Y') }}</td>
+              <td>
+                <a class="btn btn-info reservation-history" href="{{ path('vehicles-history', {id: vehicle.id}) }}">Reservation history</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <h1>Nema proizvoda</h1>
+      {% endif %}
+    </div>
+{% endblock %}
