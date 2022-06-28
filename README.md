@@ -1,6 +1,6 @@
 # Symfony car rent application
 
-This is a basic car rent crud app made using Symfony Framework.
+This is a basic car rent app made using Symfony Framework.
 
 ## Setup 📃
 
@@ -13,7 +13,7 @@ Below we will setup the symfony project
 Open your designated terminal and go to your www, htdocs, html ... etc folder and run the below command.
 
 ```bash
-git clone https://github.com/Slokyy/symfony-car-rent-crud.git
+git clone https://github.com/Slokyy/symfony-car-rent.git
 ```
 
 ## Installing dependencies
