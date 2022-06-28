@@ -6,6 +6,7 @@ use App\Entity\Vehicle;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,6 +18,7 @@ class VehicleType extends AbstractType
         $builder
             ->add('brand', TextType::class)
             ->add('model', TextType::class)
+            ->add('description', TextareaType::class)
             ->add('purchase_date', DateType::class, [
               'widget' => 'choice',
               'input'  => 'datetime_immutable',

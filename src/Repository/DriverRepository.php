@@ -47,19 +47,18 @@ class DriverRepository extends ServiceEntityRepository
         }
     }
 
-  public function findLatestReservedVehicle($id)
-  {
-    $query = $this->createQueryBuilder('d')
-      ->select('d, r')
-      ->where('d.id = :id')
-      ->leftJoin('d.reservations', 'r')
-      ->setParameter('id', $id)
-      ->orderBy('r.id', 'DESC')
-      ->getQuery()
-      ->getResult();
-    return $query[0];
-
-  }
+    public function findLatestReservedVehicle($id)
+    {
+        $query = $this->createQueryBuilder('d')
+            ->select('d, r')
+            ->where('d.id = :id')
+            ->leftJoin('d.reservations', 'r')
+            ->setParameter('id', $id)
+            ->orderBy('r.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+        return $query[0];
+    }
 
     // /**
     //  * @return Driver[] Returns an array of Driver objects

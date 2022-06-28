@@ -28,6 +28,9 @@ class Vehicle
     #[ORM\OneToMany(mappedBy: 'vehicle', targetEntity: Reservation::class)]
     private $reservations;
 
+    #[ORM\Column(type: 'string', length: 500)]
+    private $description;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -100,6 +103,18 @@ class Vehicle
                 $reservation->setVehicle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
